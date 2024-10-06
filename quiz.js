@@ -1,16 +1,17 @@
-function checkAnswer(){
-    let correctAnswer = "4";
+function checkAnswer() {
+    const correctAnswer = 4;
+    const checkedRadioBtn = document.querySelector("input[name='quiz']:checked");
+    const userAnswer = Number(checkedRadioBtn.value);
 
-    let userAnswer = document.querySelector('input[name="quiz"]:checked');
+    const feedBack = document.getElementById("feedback");
 
-    if(userAnswer){
-const feedbackElement = document.getElementById('feedback')
-if(userAnswer.value === correctAnswer){
-    feedbackElement.textContent = "Correct! Well done."
-} else {
-    feedbackElement.textContent = "That's incorrect. Try again!"
-
-}
+    if (userAnswer === correctAnswer) {
+        feedBack.textContent = "Correct! Well done.";
+    } else {
+        feedBack.textContent = "That's incorrect. Try again!";
     }
+
 }
-document.getElementById("submit-answer").addEventListener('click',checkAnswer)
+
+const submitAnswerBtn = document.getElementById("submit-answer");
+submitAnswerBtn.addEventListener("click", checkAnswer);
